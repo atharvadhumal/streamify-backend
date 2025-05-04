@@ -13,16 +13,18 @@ import { connectDB } from "./lib/db.js";
 const app = express();
 const PORT = process.env.PORT;
 
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 
-app.use(
-  cors(
-  //   {
-  //   origin: ["http://localhost:5173", "https://streamify-frontend-omega.vercel.app/" ] ,
-  //   credentials: true, // allow frontend to send cookies
-  // }
-)
-);
+// app.use(
+//   cors(
+//   //   {
+//   //   origin: ["http://localhost:5173", "https://streamify-frontend-omega.vercel.app/" ] ,
+//   //   credentials: true, // allow frontend to send cookies
+//   // }
+// )
+// );
+
+app.use(cors());
 
 app.use(express.json());
 app.use(cookieParser());

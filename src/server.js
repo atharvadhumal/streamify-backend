@@ -15,16 +15,14 @@ const PORT = process.env.PORT;
 
 // const __dirname = path.resolve();
 
-// app.use(
-//   cors(
-//   //   {
-//   //   origin: ["http://localhost:5173", "https://streamify-frontend-omega.vercel.app/" ] ,
-//   //   credentials: true, // allow frontend to send cookies
-//   // }
-// )
-// );
-
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL || "https://streamify-frontend-omega.vercel.app",
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.use(express.json());
 app.use(cookieParser());
